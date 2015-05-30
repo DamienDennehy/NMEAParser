@@ -34,6 +34,6 @@ namespace NMEAParser.NMEA0183
         /// </summary>
         /// <param name="sentence"></param>
         /// <returns></returns>
-        BaseSentence ParseSentence(string sentence);
+        SentenceBase ParseSentence(string sentence);
     }
 }

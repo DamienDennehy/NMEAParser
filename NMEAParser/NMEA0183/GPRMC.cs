@@ -24,7 +24,7 @@ namespace NMEAParser.NMEA0183
     /// <summary>
     /// Sentence of type GPRMC.
     /// </summary>
-    public class GPRMC : BaseSentence
+    public class GPRMC : SentenceBase
     {
         /// <summary>
         /// The number of knots in a kilometre.
@@ -191,7 +191,7 @@ namespace NMEAParser.NMEA0183
         /// </summary>
         /// <param name="sentence"></param>
         /// <returns>Base Sentence</returns>
-        public BaseSentence ParseSentence(string sentence)
+        public SentenceBase ParseSentence(string sentence)
         {
             //Check if the sentence is null
             if (String.IsNullOrWhiteSpace(sentence))
