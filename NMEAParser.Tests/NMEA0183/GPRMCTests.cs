@@ -44,7 +44,7 @@ namespace NMEAParser.Tests.NMEA0183
             double expectedBearing = 62.01;
             double expectedSpeed = 11.90;
 
-            Assert.AreEqual("GPRMC", actual.SentenceType);
+            Assert.AreEqual(typeof(GPRMC), actual.GetType());
             Assert.AreEqual(expectedDate, actual.TimeStamp);
             Assert.AreEqual(expectedLat, actual.LatLon.Latitude);
             Assert.AreEqual(expectedLon, actual.LatLon.Longtitude);

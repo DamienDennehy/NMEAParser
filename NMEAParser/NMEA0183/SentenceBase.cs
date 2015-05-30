@@ -22,22 +22,7 @@ namespace NMEAParser.NMEA0183
     /// <summary>
     /// Abstract Builder class which all NMEA sentences should use.
     /// </summary>
-    public abstract class SentenceBase
+    public abstract class Sentence
     {
-        #region "Properties"
-        /// <summary>
-        /// The type of NMEA Sentence.
-        /// </summary>
-        public string SentenceType { get; private set; }
-        #endregion
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="sentenceType"></param>
-        protected SentenceBase(string sentenceType)
-        {
-            SentenceType = sentenceType;
-        }
     }
 }
