@@ -13,12 +13,15 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 using System;
 
 namespace NMEAParser.Utils
 {
+    /// <summary>
+    /// Double helper methods.
+    /// </summary>
     public class DoubleUtil
     {
         /// <summary>

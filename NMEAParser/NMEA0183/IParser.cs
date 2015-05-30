@@ -13,13 +13,27 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 namespace NMEAParser.NMEA0183
 {
+    /// <summary>
+    /// Interface for all sentence parsers.
+    /// </summary>
     public interface IParser
     {
+        /// <summary>
+        /// Indicates if the sentence is a valid one.
+        /// </summary>
+        /// <param name="sentence"></param>
+        /// <returns></returns>
         bool IsSentence(string sentence);
+
+        /// <summary>
+        /// Convert the string to a valid sentence.
+        /// </summary>
+        /// <param name="sentence"></param>
+        /// <returns></returns>
         BaseSentence ParseSentence(string sentence);
     }
 }

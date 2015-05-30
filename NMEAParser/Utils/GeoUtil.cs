@@ -13,7 +13,7 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,9 @@ using System.Linq;
 
 namespace NMEAParser.Utils
 {
+    /// <summary>
+    /// Geospatial helper methods.
+    /// </summary>
     public class GeoUtil
     {
         /// <summary>
@@ -84,7 +87,7 @@ namespace NMEAParser.Utils
         /// Route must be sorted before execution.
         /// </summary>
         /// <param name="route">The list of points to compare distance.</param>
-        /// <param name="route">The minimum distance in KM that should between each point for comparison.</param>
+        /// <param name="distanceKM">The minimum distance in KM that should between each point for comparison.</param>
         /// <returns>A double indicating the total distance between the points in KM.</returns>
         public static double GetDistanceKM(List<LatLon> route, double distanceKM)
         {

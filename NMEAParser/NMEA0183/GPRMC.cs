@@ -13,7 +13,7 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 using System;
 using NMEAParser;
@@ -21,75 +21,70 @@ using NMEAParser.Utils;
 
 namespace NMEAParser.NMEA0183
 {
+    /// <summary>
+    /// Sentence of type GPRMC.
+    /// </summary>
     public class GPRMC : BaseSentence
     {
-        #region "Fields"
-        protected LatLon _latLon;
-        protected double _bearing;
-        protected double _speedKnots;
-        protected double _magVar;
-        protected DateTime _timeStamp;
-        #endregion
+        /// <summary>
+        /// The number of knots in a kilometre.
+        /// </summary>
+        public const double KNOTS_IN_KM = 1.852;
 
         #region "Properties"
-        public LatLon LatLon
-        {
-            get
-            {
-                return _latLon;
-            }
-        }
+        /// <summary>
+        /// The co-ordinates of the reading.
+        /// </summary>
+        public LatLon LatLon { get; private set; }
 
-        public double Bearing
-        {
-            get
-            {
-                return _bearing;
-            }
-        }
-        public double SpeedKnots
-        {
-            get
-            {
-                return _speedKnots;
-            }
-        }
-        public double SpeedKM
-        {
-            get
-            {
-                return SpeedKnots * 1.852;
-            }
-        }
+        /// <summary>
+        /// The compass direction of the reading.
+        /// </summary>
+        public double Bearing { get; private set; }
 
-        public DateTime TimeStamp
-        {
-            get
-            {
-                return _timeStamp;
-            }
-        }
-        public double MagVar
-        {
-            get
-            {
-                return _magVar;
-            }
-        }
-  
+        /// <summary>
+        /// The speed in knots when the reading was taken.
+        /// </summary>
+        public double SpeedKnots { get; private set; }
+
+        /// <summary>
+        /// The speed in KM when the reading was taken.
+        /// </summary>
+        public double SpeedKM { get { return SpeedKnots * KNOTS_IN_KM; } }
+
+        /// <summary>
+        /// The time the reading was taken.
+        /// </summary>
+        public DateTime TimeStamp { get; private set; }
+
+        /// <summary>
+        /// The magnetic variance of the reading.
+        /// </summary>
+        public double MagVar { get; private set; }
         #endregion
 
-        internal GPRMC(LatLon latLon, double bearing, double speedKnots, DateTime timeStamp, double magVar) 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="latLon"></param>
+        /// <param name="bearing"></param>
+        /// <param name="speedKnots"></param>
+        /// <param name="timeStamp"></param>
+        /// <param name="magVar"></param>
+        internal GPRMC(LatLon latLon, double bearing, double speedKnots, DateTime timeStamp, double magVar) :
+            base("GPRMC")
         {
-            this._sentenceType = "GPRMC";
-            this._latLon = latLon;
-            this._bearing = bearing;
-            this._speedKnots = speedKnots;
-            this._timeStamp = timeStamp;
-            this._magVar = magVar;
+            this.LatLon = latLon;
+            this.Bearing = bearing;
+            this.SpeedKnots = speedKnots;
+            this.TimeStamp = timeStamp;
+            this.MagVar = magVar;
         }
     }
 
+    /// <summary>
+    /// Parser for GPRMC sentences.
+    /// </summary>
     public class GPRMCParser : IParser
     {
         /// <summary>
@@ -281,8 +276,6 @@ namespace NMEAParser.NMEA0183
             double speed = 0;
             double bearing = 0;
             double magVar = 0;
-
-            
 
             //Only convert the speed field if it's actually used
             if (DoubleUtil.IsDouble(fields[7]))

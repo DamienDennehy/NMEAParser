@@ -13,15 +13,30 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 namespace NMEAParser
 {
+    /// <summary>
+    /// Simple struct for Latitude and Longitude.
+    /// </summary>
     public struct LatLon
     {
+        /// <summary>
+        /// The Latitude of the GeoPoint.
+        /// </summary>
         public double Latitude;
+
+        /// <summary>
+        /// The Longtitude of the GeoPoint.
+        /// </summary>
         public double Longtitude;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longtitude"></param>
         public LatLon(double latitude, double longtitude)
         {
             Latitude = latitude;

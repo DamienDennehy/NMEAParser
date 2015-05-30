@@ -13,31 +13,31 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 using System;
 
 namespace NMEAParser.NMEA0183
 {
+    /// <summary>
+    /// Abstract Builder class which all NMEA sentences should use.
+    /// </summary>
     public abstract class BaseSentence
     {
-        #region "Fields"
-        protected string _sentenceType;
-        #endregion
-
         #region "Properties"
-        public string SentenceType
-        {
-            get
-            {
-                return _sentenceType;
-            }
-        }
-
+        /// <summary>
+        /// The type of NMEA Sentence.
+        /// </summary>
+        public string SentenceType { get; private set; }
         #endregion
 
-        protected BaseSentence()
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="sentenceType"></param>
+        protected BaseSentence(string sentenceType)
         {
+            SentenceType = sentenceType;
         }
     }
 }

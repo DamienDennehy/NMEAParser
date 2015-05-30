@@ -13,12 +13,15 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 using System;
 
 namespace NMEAParser.Utils
 {
+    /// <summary>
+    /// Helper utilities for sentence parsing.
+    /// </summary>
     public class ParserUtil
     {
         /// <summary>
@@ -219,7 +222,7 @@ namespace NMEAParser.Utils
         /// <summary>
         /// Converts a string longtitude stored in HHHMM.M to a double
         /// </summary>
-        /// <param name="latitude">The longtitude stored as a string.</param>
+        /// <param name="longtitude">The longtitude stored as a string.</param>
         /// <param name="hemisphere">The hemisphere of the longtitude.</param>
         /// <returns></returns>
         ///<exception cref="System.ArgumentException">Is thrown when the arguments are invalid.</exception>
@@ -252,7 +255,6 @@ namespace NMEAParser.Utils
             }
 
             return lon;
-
         }
     }
 }

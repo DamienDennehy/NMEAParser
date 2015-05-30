@@ -13,12 +13,15 @@
 //You should have received a copy of the GNU General Public License
 //along with NMEA Parser.  If not, see <http://www.gnu.org/licenses/>.
 
-//Copyright 2011 Damien Dennehy.
+//Copyright 2015 Damien Dennehy.
 
 using System;
 
 namespace NMEAParser.Utils
 {
+    /// <summary>
+    /// DateTime helper methods.
+    /// </summary>
     public class DateTimeUtil
     {
         /// <summary>
@@ -89,11 +92,11 @@ namespace NMEAParser.Utils
         }
 
         /// <summary>
-        /// Converts a date stored in a MMDDYY format and a time stored in HHMMSS.XXX format to a datetime object.
+        ///  Converts a date stored in a MMDDYY format and a time stored in HHMMSS.XXX format to a datetime object.
         /// </summary>
-        /// <param name="input">A string to be converted.</param>
-        /// <returns>A DateTime representing the converted string.</returns>
-        ///<exception cref="System.ArgumentException">Is thrown when the date or time arguments are invalid.</exception>
+        /// <param name="date">The date to be converted, in MMDDYY format.</param>
+        /// <param name="time">The time to be converted, in HHMMSS.XXX format.</param>
+        /// <returns></returns>
         public static DateTime GetDate(string date, string time)
         {
             if (!IsShortDate(date))
