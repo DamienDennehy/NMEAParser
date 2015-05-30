@@ -66,11 +66,11 @@ namespace NMEAParser.NMEA0183
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="latLon"></param>
-        /// <param name="bearing"></param>
-        /// <param name="speedKnots"></param>
-        /// <param name="timeStamp"></param>
-        /// <param name="magVar"></param>
+        /// <param name="latLon">The co-ordinates of the reading.</param>
+        /// <param name="bearing">The compass direction of the reading.</param>
+        /// <param name="speedKnots">The speed in knots when the reading was taken.</param>
+        /// <param name="timeStamp">The time the reading was taken.</param>
+        /// <param name="magVar">The magnetic variance of the reading.</param>
         internal GPRMC(LatLon latLon, double bearing, double speedKnots, DateTime timeStamp, double magVar) :
             base()
         {
