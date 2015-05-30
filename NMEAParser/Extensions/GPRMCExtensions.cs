@@ -21,6 +21,9 @@ using NMEAParser.NMEA0183;
 
 namespace NMEAParser.Extensions
 {
+    /// <summary>
+    /// Helper extensions for processing GPRMC sentences.
+    /// </summary>
     public static class GPRMCExtensions
     {
         /// <summary>
