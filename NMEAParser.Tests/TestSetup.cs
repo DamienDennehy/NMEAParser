@@ -14,6 +14,7 @@ namespace NMEAParser.Tests
         [AssemblyInitialize()]
         public static void ClassInit(TestContext context)
         {
+            //Set culture to German to ensure that the US NMEA parser still works under different cultures.
             Thread.CurrentThread.CurrentCulture = new CultureInfo("de-DE");
         }
     }
