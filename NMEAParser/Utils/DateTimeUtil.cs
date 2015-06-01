@@ -16,6 +16,7 @@
 //Copyright 2015 Damien Dennehy.
 
 using System;
+using System.Globalization;
 
 namespace NMEAParser.Utils
 {
@@ -81,7 +82,7 @@ namespace NMEAParser.Utils
                 return false;
             }
 
-            double time = Double.Parse(input);
+            double time = Double.Parse(input, new CultureInfo("en-US"));
 
             if (time < 0 || time > 235959.999)
             {

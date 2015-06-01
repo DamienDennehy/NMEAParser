@@ -18,6 +18,7 @@
 using System;
 using NMEAParser;
 using NMEAParser.Utils;
+using System.Globalization;
 
 namespace NMEAParser.NMEA0183
 {
@@ -280,19 +281,19 @@ namespace NMEAParser.NMEA0183
             //Only convert the speed field if it's actually used
             if (DoubleUtil.IsDouble(fields[7]))
             {
-                speed = Double.Parse(fields[7]);
+                speed = Double.Parse(fields[7], new CultureInfo("en-US"));
             }
 
             //Only convert the bearing field if it's actually used
             if (DoubleUtil.IsDouble(fields[8]))
             {
-                bearing = Double.Parse(fields[8]);
+                bearing = Double.Parse(fields[8], new CultureInfo("en-US"));
             }
 
             //Only convert the magnetic variation field if it's actually used
             if (DoubleUtil.IsDouble(fields[10]))
             {
-                magVar = Double.Parse(fields[10]);
+                magVar = Double.Parse(fields[10], new CultureInfo("en-US"));
             }
 
             return new GPRMC(new LatLon(latitude, longtitude), bearing, speed, timestamp, magVar);

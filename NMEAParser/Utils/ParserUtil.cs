@@ -16,6 +16,7 @@
 //Copyright 2015 Damien Dennehy.
 
 using System;
+using System.Globalization;
 
 namespace NMEAParser.Utils
 {
@@ -102,7 +103,7 @@ namespace NMEAParser.Utils
                 return false;
             }
 
-            double latitude = Double.Parse(input);
+            double latitude = Double.Parse(input, new CultureInfo("en-US"));
 
             if (latitude < 0)
             {
@@ -129,7 +130,7 @@ namespace NMEAParser.Utils
                 return false;
             }
 
-            double longtitude = Double.Parse(input);
+            double longtitude = Double.Parse(input, new CultureInfo("en-US"));
 
             if (longtitude < 0)
             {
@@ -205,8 +206,8 @@ namespace NMEAParser.Utils
                 throw new ArgumentException("Invalid latitude hemisphere provided");
             }
 
-            hours = double.Parse(latitude.Substring(0, 2));
-            minutes = double.Parse(latitude.Substring(2)) / 60;
+            hours = double.Parse(latitude.Substring(0, 2), new CultureInfo("en-US"));
+            minutes = double.Parse(latitude.Substring(2), new CultureInfo("en-US")) / 60;
             lat = hours + minutes;
 
             //If the latitude is south of the equator convert it to a minus number
@@ -244,8 +245,8 @@ namespace NMEAParser.Utils
                 throw new ArgumentException("Invalid longtitude hemisphere provided");
             }
 
-            hours = double.Parse(longtitude.Substring(0, 3));
-            minutes = double.Parse(longtitude.Substring(3)) / 60;
+            hours = double.Parse(longtitude.Substring(0, 3), new CultureInfo("en-US"));
+            minutes = double.Parse(longtitude.Substring(3), new CultureInfo("en-US")) / 60;
             lon = hours + minutes;
 
             //If the longtitude is west of the Prime Meridian convert it to a minus number
